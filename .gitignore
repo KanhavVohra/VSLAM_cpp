@@ -1,0 +1,63 @@
+# Build folders
+build/
+cmake-build-*/
+out/
+bin/
+obj/
+
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Compiled files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+
+# Debug / logs
+*.log
+*.tmp
+*.core
+core
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python, if you use Python scripts too
+__pycache__/
+*.pyc
+.venv/
+venv/
+env/
+
+# Dataset / large files
+data/
+datasets/
+videos/
+recordings/
+*.mp4
+*.avi
+*.mkv
+*.bag
+*.db3
+
+# Secrets / private config
+.env
+*.key
+*.pem
+config.local.*
+secrets.*
