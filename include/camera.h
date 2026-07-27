@@ -1,30 +1,28 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include <iostream>
 #include <string>
 
-
-struct CamerConfig {
+struct CameraConfig
+{
     int width = 640;
     int height = 480;
-    int framestodrop = 3;
-    bool resizeFrame = true;
+
+    int nfeatures = 1000;
+
+    // Used for network/IP cameras.
+    // Webcam sources automatically use zero.
+    int framesToDrop = 3;
 };
 
-
-
-
-class Camera {
-private:
-
-
+class Camera
+{
 public:
-    std::string cameraURL(const std::string& inputUrl);
-    void setWindow();
+    Camera() = default;
+    ~Camera() = default;
 
-    ~Camera();
-
+    std::string cameraURL(const std::string& inputUrl) const;
+    bool isWebcamIndex(const std::string& source);
 };
-#endif
 
+#endif

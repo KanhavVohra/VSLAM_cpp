@@ -44,13 +44,21 @@ bool MonoCamera::isWebcamIndex(const std::string& url) const {
     return true;
 }
 
-bool MonoCamera::readLatestFrame() {
-    // For IP cameras, drop old buffered frames.
-    // This prevents delay buildup.
-    for (int i = 0; i < framesToDrop_; i++) {
-        if (!cap_.grab()) {
+bool MonoCamera::readLatestFrame()
+{
+    // Discard older buffered frames.
+    for (int i = 0; i < framesToDrop_; ++i)
+    {
+        if (!cap_.grab())
+        {
             return false;
         }
+    }
+
+    // Grab the frame that will actually be returned.
+    if (!cap_.grab())
+    {
+        return false;
     }
 
     return cap_.retrieve(rawFrame_);

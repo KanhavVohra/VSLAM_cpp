@@ -8,7 +8,7 @@
 
 class ORBExtractor {
 public:
-    ORBExtractor(int nfeatures = 500);
+    ORBExtractor(int nfeatures = 2000);
 
     void detect(
         const cv::Mat& gray,
