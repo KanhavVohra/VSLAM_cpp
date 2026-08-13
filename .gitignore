@@ -22,6 +22,10 @@ compile_commands.json
 *.a
 *.lib
 
+# ImGUI Config files
+*.ini
+
+
 # Debug / logs
 *.log
 *.tmp
