@@ -71,8 +71,6 @@ OpenGL Texture
 Dear ImGui Interface
 ```
 
-At this stage, the project should be considered a **VSLAM frontend foundation** rather than a complete SLAM implementation.
-
 ---
 
 ## Repository Structure
@@ -109,92 +107,6 @@ VSLAM_cpp/
 
 ---
 
-## Main Components
-
-### Window
-
-The `Window` component manages the application window and rendering environment.
-
-Responsibilities include:
-
-- GLFW initialization
-- OpenGL context creation
-- GLEW initialization
-- Dear ImGui initialization
-- Frame rendering
-- Window resizing
-- VSync
-- Application shutdown
-
----
-
-### Camera
-
-The camera layer provides common camera configuration and camera-source handling.
-
-Supported input types include:
-
-- Local webcams
-- HTTP streams
-- HTTPS streams
-- RTSP streams
-
-The camera configuration currently includes parameters such as:
-
-- Frame width
-- Frame height
-- ORB feature count
-- Number of frames to drop for network cameras
-
----
-
-### MonoCamera
-
-The monocular camera pipeline is currently the most developed vision component.
-
-It performs:
-
-- Camera connection
-- Frame acquisition
-- Network-stream latency handling
-- Frame resizing
-- Grayscale conversion
-- ORB feature extraction
-- Descriptor generation
-- Keypoint visualization
-
----
-
-### ORBExtractor
-
-`ORBExtractor` wraps OpenCV's ORB implementation.
-
-It is responsible for:
-
-- Detecting ORB keypoints
-- Computing ORB descriptors
-- Managing ORB feature-extraction parameters
-
-Keeping feature extraction separate from camera handling makes it easier to replace or extend the feature extractor later.
-
----
-
-### StereoCamera
-
-The repository also contains an early stereo-camera implementation.
-
-Current stereo functionality includes:
-
-- Left camera input
-- Right camera input
-- Frame acquisition from both cameras
-- Grayscale conversion
-- Histogram equalization
-- Left/right image processing
-
-Full stereo integration into the main GUI and SLAM pipeline is still under development.
-
----
 
 ## Dependencies
 
@@ -263,25 +175,6 @@ The generated executable is named:
 VSlam
 ```
 
----
-
-## Camera Sources
-
-The application is designed to accept multiple types of camera input.
-
-Examples include:
-
-```text
-0
-1
-http://camera-address
-https://camera-address
-rtsp://camera-address/stream
-```
-
-Numeric values represent local webcam indices.
-
----
 
 ## User Interface
 
@@ -475,11 +368,6 @@ The current `Start SLAM` control therefore starts the existing processing pipeli
 
 ---
 
-## License
-
-See the repository's `LICENSE` file for licensing information.
-
----
 
 ## Author
 
